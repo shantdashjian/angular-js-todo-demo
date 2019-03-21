@@ -1,0 +1,15 @@
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li ng-click="vm.makeActive($event)" class="active"><a href="#/">Home</a></li>
+			<li ng-click="vm.makeActive($event)"><a href="#/todo">Todo</a></li>
+			<li ng-click="vm.makeActive($event)"><a href="#/contact">Contact</a></li>
+			<li ng-click="vm.makeActive($event)"><a href="#/about">About</a></li>
+			<li ng-show="vm.userLoggedIn()"><logout>Loading logout...</logout></li>
+			<li ng-hide="vm.userLoggedIn()">	<button ng-click="vm.login()" type="submit" class="btn btn-success">Login</button>
+</li>
+			<li ng-hide="vm.userLoggedIn()">	<button ng-click="vm.register()" type="submit" class="btn btn-success">Register</button>
+</li>
+		</ul>
+	</div>
+</nav>

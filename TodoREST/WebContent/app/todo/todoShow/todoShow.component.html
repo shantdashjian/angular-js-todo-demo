@@ -1,0 +1,25 @@
+<div ng-hide="vm.editMode">
+<h2>To Do:</h2>
+<div>
+	<label>Priority:</label><span> {{vm.todo.priority}}</span><br> <label>Task:</label><span>
+		{{vm.todo.task}}</span><br> <label>Description:</label><span>
+		{{vm.todo.description}}</span><br> <label>Completed:</label><span>
+		{{vm.todo.completed}}</span><br>
+	<button ng-click="vm.backButton()">Go Back</button>
+	<button ng-click="vm.editMode = true; vm.setEditTodo();">Edit</button>
+</div>
+</div>
+<form ng-show="vm.editMode">
+	<input ng-model="vm.editTodo.priority" type="number" value="1" min="1"  /><br />
+	<input type="text" placeholder="Task" ng-model="vm.editTodo.task" /><br />
+	<input type="text" placeholder="Description" ng-model="vm.editTodo.description" /><br />
+	<label>Completed</label><input type="checkbox" placeholder="Completed" ng-model="vm.editTodo.completed" /><br />
+	
+	<input type="submit" value="Cancel"
+		ng-click="vm.editMode=false; vm.editTodo=null;" />
+	
+	<input type="submit" value="Save"
+		ng-click="vm.save()" />
+</form>
+
+

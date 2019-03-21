@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Tue Mar 19 12:38:00 AMT 2019
+org.eclipse.jst.j2ee.server\:/binary\:/Users/shaundashjian/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.2.RELEASE/562b3b775b6e8e7113b5d23b21946f939658bd19/spring-web-4.3.2.RELEASE.jar=/Users/shaundashjian/SD/Tools/apache-tomcat-8.0.41/wtpwebapps/TodoREST/WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
+org.eclipse.jst.j2ee.server\:TodoREST=/Users/shaundashjian/SD/Tools/apache-tomcat-8.0.41/wtpwebapps/TodoREST
+org.eclipse.jst.j2ee.server\:JPATodo=/Users/shaundashjian/SD/Tools/apache-tomcat-8.0.41/wtpwebapps/TodoREST/WEB-INF/lib/JPATodo.jar

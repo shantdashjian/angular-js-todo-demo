@@ -1,0 +1,48 @@
+<h2>
+	My To Do List<span class="badge" ng-class="vm.warningLevel()">{{vm.count()}}</span>
+</h2>
+<todo-show ng-show="vm.selected" todo="vm.selected"
+	go-back="vm.displayTable()" on-update="vm.updateTodo(todo)"></todo-show>
+<form ng-show="vm.showTable">
+	<input ng-model="vm.todo.priority" type="number" value="1"  min="1" autofocus required>
+	<input type="text" ng-model="vm.todo.task" /> <input type="submit"
+		ng-click="vm.add(vm.todo); vm.todo = {priority: 1}" value="Add" />
+</form>
+<div id="showCompleted" ng-show="vm.showTable">
+	<label for="completed">Show Completed? </label> <input type="checkbox"
+		name="completed" ng-model="vm.showComplete">
+</div>
+<table class="table table-bordered " ng-show="vm.showTable">
+	<thead>
+		<tr class="pointer noselect">
+<!-- 			<column-header ng-click="vm.changeOrderBy('task')" field="task" text="Task">Loading</column-header>
+ -->			<!-- <column-header ng-click="vm.changeOrderBy('completed')">Mark Completed</column-header>
+			<column-header ng-click="vm.changeOrderBy('completed')">Completed</column-header>
+			<column-header ng-click="vm.changeOrderBy('completedDate')">Completed Date</column-header>
+			<column-header>Action</column-header> -->
+			<th ng-click="vm.changeOrderBy('priority')">Priority</th>
+			<th ng-click="vm.changeOrderBy('task')">Task</th>
+			<th ng-click="vm.changeOrderBy('completed')">Mark Completed</th>
+			<th ng-click="vm.changeOrderBy('completed')">Completed</th>
+			<th ng-click="vm.changeOrderBy('completedDate')">Completed Date</th>
+			<th >Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			ng-repeat="todo in vm.todos | incomplete : vm.showComplete | orderBy : vm.orderBy : vm.reverse"
+			ng-class="vm.completed(todo)" class="clear-background">
+			<td>{{todo.priority}}</td>
+			<td ng-click="vm.displayTodo(todo)" class="pointer">{{todo.task}}</td>
+			<td><input ng-change="vm.updateTodo(todo)"
+				ng-model="todo.completed" type="checkbox"></td>
+			<td>{{todo.completed}}</td>
+			<td>{{todo.completedDate | date:'MM/dd/yyyy'}}</td>
+
+			<td>
+				<button ng-click="vm.deleteTodo(todo.id); ">Delete</button>
+			</td>
+
+		</tr>
+	</tbody>
+</table>
